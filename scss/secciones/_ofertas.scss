@@ -1,0 +1,88 @@
+
+$color-principal:  #ff6600;
+$color-secund: #03456D;
+$color-white: whitesmoke;
+$fuente-titulo: 'Shadows Into Light', cursive;
+
+@mixin flex($direction){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: ($direction);
+}
+@mixin line{
+    width: 150px;
+    height: 4px;
+    background: $color-principal;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+
+/* SECCION OFERTAS */
+.promoPresentacion{
+    @include flex(row);
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-top: 15px;
+    img{
+        @media screen and (max-width: 600px){
+          width: 300px;
+          height: 300px;        
+      }
+    }
+
+}
+
+.ofertas{
+    @include flex(column);
+    flex-wrap: wrap;
+
+    .title{
+        h2{
+            margin-top: 40px;
+            padding-top: 20px;
+            font-size: 6vmin;
+            font-family: $fuente-titulo;
+        }
+        .line{
+            @include line;
+        }
+    }
+    .contenedorPromo{
+        @include flex(row);
+        flex-wrap: nowrap;
+        margin: 30px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #eee; 
+        img{
+            width: 300px;
+            height: 230px;
+            object-fit: cover;
+            @media screen and (max-width: 500px){
+                max-width: 200px;
+            }
+        }
+        
+
+        @media screen and (max-width: 950px){
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        @media screen and (max-width: 500px){
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        .descripcionPromo{
+            margin: 20px;
+            padding: 20px;
+
+            .precioPromo{
+                margin-left: 20px ;
+            }
+        }  
+    }
+}

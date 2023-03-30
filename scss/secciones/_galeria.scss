@@ -1,0 +1,163 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+$color-principal:  #ff6600;
+$color-secund: #03456D;
+$color-white: whitesmoke;
+$fuente-titulo: 'Shadows Into Light', cursive;
+
+@mixin line{
+    width: 150px;
+    height: 4px;
+    background: $color-principal;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+.titGaleria{
+    font-size: 6vmin;
+    text-align: center;
+    margin-top: 70px;
+    font-family: $fuente-titulo
+
+}
+
+.line{
+    @include line;
+
+}
+ .mexico h3, .republicaDominicana h3, .bahamas h3{
+    text-align: center;  
+    margin-top: 100px;
+    color: $color-secund;
+      font: {
+        size: 5vmin;
+        weight:400;
+        family:$fuente-titulo ;
+        style: normal;
+      }
+    }   
+   
+
+
+ .mexico h4, .republicaDominicana h4, .bahamas h4{
+    margin: 30px;
+ }
+ .destinos{
+    @include flex(row);
+    margin: 10px;
+    padding: 20px;
+
+    @media screen and (max-width: 1024px){
+        flex-wrap: wrap;
+    }
+
+    .galeria {
+        border: 1px solid #ccc;
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+          &:hover{background-color: #85C1E9;
+          color: $color-white;
+          }
+          a{
+            text-decoration: none;
+            color: black;
+            img{
+                object-fit: cover;
+                object-position: bottom;
+                max-width: 100%;
+                height: 400px;
+                 @media screen and (max-width: 525px){
+                height: 300px;
+    }
+            }
+        }
+      }
+ }
+
+
+.contenedor-galeria{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 150px;
+    padding: 20px;
+    grid-gap: 10px;
+
+    .img-galeria{
+        width: 100%;
+        height: 100%;
+        object-fit: cover; 
+
+        @media screen and (max-width: 768px){
+            max-height: 120px;
+        }
+    }
+
+    .item-galeria:nth-child(1){
+        grid-row-start: span 3;
+        grid-column-start: span 2;
+    }
+    .item-galeria:nth-child(2){
+        grid-row-start: span 2;
+    }
+    .item-galeria:nth-child(4){
+        grid-row-start: span 2;
+    }
+    .item-galeria:nth-child(6){
+        grid-column-start: span 2; 
+    }
+    .item-galeria:nth-child(13){
+        grid-column-start: span 2; 
+    }
+    .item-galeria:nth-child(15){
+        grid-column-start: span 2; 
+    }
+
+    @media screen and (max-width: 1024px){
+        .contenedor-galeria {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .item-galeria:nth-child(1){
+            grid-row-start: span 2 ;
+            grid-column-start: span 2;
+        }
+        .item-galeria:nth-child(2){
+            grid-row-start: span 1;
+        }
+        .item-galeria:nth-child(4){
+            grid-row-start: span 1;
+        }
+    
+        .item-galeria:nth-child(6){
+            grid-column-start: span 2; 
+            grid-row-start: span 1; 
+        }
+        .item-galeria:nth-child(9){
+            grid-row-start: span 1; 
+        }
+    
+    }
+    @media screen and (max-width: 768px){
+
+        .item-galeria:nth-child(n){
+            grid-row-start: span 1;
+        }
+
+        .item-galeria:nth-child(n){
+            grid-column-start: span 2;
+
+        }
+
+        
+    
+    }
+    
+}
+
+
+

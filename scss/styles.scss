@@ -1,0 +1,375 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Shadows+Into+Light&display=swap');
+
+
+$color-principal:  #ff6600;
+$color-secund: #03456D;
+$color-white: whitesmoke;
+$fuente-titulo: 'Shadows Into Light', cursive;
+
+@mixin flex($direction, $align){
+    display: flex;
+    justify-content: center;
+    align-items: ($align);
+    flex-direction: ($direction);
+}
+@mixin boton{
+    color: black; 
+    padding: 8px 15px;
+    border-radius: 30px;
+    background-color:$color-principal;
+    text-decoration: none;
+}
+
+@mixin line{
+    width: 150px;
+    height: 4px;
+    background: $color-principal;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+
+body, html{
+    overflow-x: hidden;
+}
+
+body{
+    background-color: #FEF5E7 ;  
+}
+
+/* NAVBAR RESPONSIVE*/
+header{
+    .container-fluid{
+        background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+        a {
+            color:$color-white;
+            text-decoration: none;
+                &:hover{
+                    color: $color-white;
+                    background-color:$color-principal;
+
+                }    
+               }
+    }
+}
+
+
+/* SECCION INICIO*/
+.inicio{
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(../Imagenes/background1.jpg);
+     background: {
+        repeat: no-repeat;
+        position: center;
+        size: cover;
+    };
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    justify-content: center;
+    height: 100vh;
+    color: whitesmoke;
+    
+    .contenedorInicio{
+        padding: 20px;
+        margin: auto;
+        text-align: center;  
+        
+          h1{
+            margin: 15px;
+            font-size: 5.5vw;
+          }
+          p{
+            font-size: 1.5vw;
+            margin: 15px 38px;
+            text-align: center;
+    
+           }
+          .botonInicio{
+            @include boton;
+            display: inline-block;
+        
+            font: {
+                size: 1.3rem; 
+                family: "Trebuchet MS", Helvetica, sans-serif;
+            }
+            
+              &:hover {
+                background: #f87e2d; 
+                border: 2px solid $color-white;
+                padding: 6px 13px;
+            }
+        }
+         a{
+            text-decoration: none;
+            color: $color-white;
+            font-size: 1.3rem;
+           
+         }
+    }
+}
+
+@media screen and (max-width: 1024px){
+    .inicio{
+        height: auto;
+    }
+    .contenedorInicio h1{
+        padding: 10px;
+        margin: 10px;
+        font-size: 40px !important;
+    }
+    .inicio .contenedorInicio p, .contenedorInicio a, .redes {
+        font-size: 15px!important;
+    }
+}
+
+
+//SECCION EVENTOS//
+.eventos{
+    width: 80%;
+    margin: 80px auto;
+    text-align: center;
+    @media screen and (max-width: 768px){
+        width: 100%;
+        margin: 60px 5px;
+    }
+     .title{
+        text-align: center;
+        h2{
+            font-size: 5vmin;
+        }
+
+        .line{
+            @include line;
+
+        }
+     }
+     .card-eventos{
+        @include flex(row, flex-start); 
+        @media screen and (max-width: 768px){
+            flex-direction: column;
+            align-items: center;
+        
+        }   
+     }
+     .row{
+        @include flex (row, center);
+        align-content: center;
+        flex-wrap: wrap;
+        width: 80%;
+        margin-top: 50px;
+        
+        .col{
+            @include flex(column, center);
+            h3{
+                margin: 10px;
+                text-align: center;
+            }
+            h4{
+                text-align: center;
+            }
+
+            p{
+                padding: 0px 40px;
+            }
+
+            
+        }
+        .col, img{
+            width: 80%;
+        }
+     }
+}
+
+//SECCION ExPLORAR//
+.explorar{
+    width: 100%;
+   
+    display: flex;
+    align-items: center;
+    background: {
+        image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../Imagenes/background2.jpg);
+        position: center;
+        size: cover; 
+        repeat: no-repeat;
+    }
+
+    .explorar-contenido{
+        width: 60%;
+        padding: 50px;
+        color: $color-white;
+        @include flex(column, center);
+        @media screen and (max-width: 575px){
+            width: 100%;
+        }
+         h2{
+            font-size: 6vmin;
+            margin: 10px;
+         }
+         .line{
+            @include line;
+            
+         }
+         p{
+            color: rgb(221, 221, 221);
+            margin-top: 10px;
+         }
+         .botonInicio{
+            @include boton;
+            margin-top: 40px;
+            text-decoration: none;
+            &:hover {
+                background: #f87e2d; 
+                border: 2px solid $color-white;
+                padding: 6px 13px;
+            }
+         }
+     }
+}
+ 
+//SECCION TOURS
+.tours{
+    .row{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 50px;
+        @media screen and (max-width: 1200px){
+                flex-direction: column;
+                margin: 20px 20ox;    
+        }
+
+        .contenido-col{
+        
+            @include flex(column, center);
+            h2{
+                font-size: 6vmin;
+                margin: 10px 10px;
+            }
+            .line{
+                @include line;
+            
+            }
+            p{
+                padding: 10px;
+                margin: 30px 15px;
+                text-align: center
+            }
+            a{
+                @include boton;
+                &:hover {
+                    background: #f87e2d; 
+                    border: 2px solid $color-white;
+                    padding: 6px 13px;
+                }
+            }
+        }
+        .img-col{
+            margin-top: 15px;
+            .galeria-tours{
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                align-items: center;
+                align-content: center;
+               justify-content: space-evenly;
+                img{
+                    object-fit: cover;
+                    width: 40vmin;
+                    height: 40vmin;
+                    margin: 10px;
+                }
+            }
+        }
+     }
+
+}
+
+@media screen and (max-width: 600px){
+ .tours .row .img-col .galeria-tours{
+    flex-direction: column;
+    justify-content: center;
+    img{
+        width: 400px;
+        height: 400px;
+    }
+    
+ }
+
+
+}
+
+//SECCION REDES//
+.redes{
+    text-align: center;
+    padding: 10px;
+    margin-top: 180px;
+    a{
+        color: #2980B9;
+        display: inline-block;
+        text-decoration: none;
+        border: 1px solid #5499C7;
+        border-radius: 100%;
+        width: 42px;
+        height: 42px;
+        line-height: 42px;
+        margin: 20px 5px;
+        font-size: 20px;
+        transition: .3s;
+         &:hover{
+            background-color: #85C1E9;
+            color: $color-white;
+            border: 1px solid $color-white;
+        }
+    }
+}
+
+
+
+// FOOTER //
+footer {
+    background: #9ed4f7;
+    padding: 0 0 30px 0;
+    color: $color-secund;
+    font-size: 14px;
+    width: 100%;
+    position: absolute;
+    .container {
+        margin-top: 20px;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .container-secciones, .copyright{
+            margin: 15px;
+        }
+        .p {
+            text-align: center;
+            padding: 10px;
+        }
+        ul{
+           list-style: none;
+        }
+        a{
+            color: $color-secund;
+        }
+    }
+}
+
+@import "./secciones/nuestrosServicios";
+@import "./secciones/ofertas";
+@import "./secciones/galeria";
+@import "./secciones/form-contacto";
